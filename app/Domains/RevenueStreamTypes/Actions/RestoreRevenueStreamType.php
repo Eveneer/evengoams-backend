@@ -35,7 +35,7 @@ class RestoreRevenueStreamType
     public function rules(): array
     {
         return [
-            'id' => ['exists:']
+            'id' => ['required', 'exists:revenue_stream_types,id'],
         ];
     }
 

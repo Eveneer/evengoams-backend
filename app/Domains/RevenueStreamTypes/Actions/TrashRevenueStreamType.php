@@ -28,6 +28,13 @@ class TrashRevenueStreamType
         return $revenue_stream_type->delete();
     }
 
+    public function rules(): array
+    {
+        return [
+            'id' => ['required', 'exists:revenue_stream_types,id'],
+        ];
+    }
+
     public function asController(RevenueStreamType $revenue_stream_type)
     {
         return $this->handle($revenue_stream_type);

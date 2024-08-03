@@ -32,7 +32,11 @@ class CreateRevenueStreamType
     public function rules(): array
     {
         return [
-
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+            'properties' => ['required', 'array'],
+            'properties.*.name' => ['required', 'string'],
+            'properties.*.type' => ['required', 'string', 'in:single_line,multi_line,text,range,radio,checkbox,dropbox,repeater'],
         ];
     }
 
